@@ -3,6 +3,9 @@ uuid = "e380c706-6fd7-45be-a86f-0677ced05258"
 authors = ["Paul Schrimpf <paul.schrimpf@gmail.com> and contributors"]
 version = "1.0.0-DEV"
 
+[deps]
+SIMD = "fdea26ae-647d-5447-a871-4b548cad5224"
+
 [compat]
 julia = "1"
 

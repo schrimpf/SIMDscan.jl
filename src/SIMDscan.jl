@@ -1,5 +1,10 @@
 module SIMDscan
 
-# Write your package code here.
+using SIMD
+
+export scan_serial!, scan_simd!
+
+include("scan.jl")
+
 
 end
