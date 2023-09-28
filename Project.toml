@@ -1,0 +1,13 @@
+name = "SIMDscan"
+uuid = "e380c706-6fd7-45be-a86f-0677ced05258"
+authors = ["Paul Schrimpf <paul.schrimpf@gmail.com> and contributors"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
