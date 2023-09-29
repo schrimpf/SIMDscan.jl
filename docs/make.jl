@@ -2,7 +2,7 @@ using Documenter, SIMDscan, DocumenterCitations
 
 DocMeta.setdocmeta!(SIMDscan, :DocTestSetup, :(using SIMDscan); recursive=true)
 
-bib = CitationBibliography(joinpath(@__DIR__,"ee.bib"), style=:authoryear)
+bib = CitationBibliography(joinpath(@__DIR__,"simd.bib"), style=:authoryear)
 
 makedocs(;
          modules=[SIMDscan],
