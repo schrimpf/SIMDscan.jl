@@ -16,9 +16,11 @@ x_1, x_1 \oplus x_2, x_3 \oplus x_2 \oplus x_1, ... , x_n \oplus x_{n-1} \oplus 
 ```
 
 
-
 ## Usage
+
+[See the docs](https://schrimpf.github.io/SIMDscan.jl/dev/)
 
 ## Benchmarks
 
-## Warnings
+[See the benchmarks section of the docs](https://schrimpf.github.io/SIMDscan.jl/dev/benchmarks/). With AVX512 instructions, `scan_simd!` appears to be about 4 time faster.
+
