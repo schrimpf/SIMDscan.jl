@@ -26,7 +26,7 @@ end
     ar(y,e) = (e[1] + α*y[1]*e[2], α*y[2]*e[2])
     e=collect(zip(ϵ, rand(T)))
     @test all(ar(ar(ar(e[1],e[2]),e[3]),e[4]) .≈ ar(ar(e[1],ar(e[2],e[3])),e[4]) )
-    @test all(ar(ar(e[1],e[2]),ar(e[3],e[4])) .≈ (ar(ar(e[1],e[2]),e[3]),e[4]) )
+    @test all(ar(ar(e[1],e[2]),ar(e[3],e[4])) .≈ ar(ar(ar(e[1],e[2]),e[3]),e[4]) )
 
     yacc = [x[1] for x in accumulate(ar,zip(ϵ, Iterators.Repeated(1.0)))]
     @test isapprox(y, yacc, rtol=sqrt(eps()))

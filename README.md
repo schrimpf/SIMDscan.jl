@@ -10,9 +10,11 @@ A fast scan using SIMD instructions.
 
 A scan or prefix operation is a generalization of a cumulative sum.
 Given a sequence $x_1, x_2, ... , x_n$, and an associative operator, $\oplus$, the the scan is
-$$
+
+```math
 x_1, x_1 \oplus x_2, x_3 \oplus x_2 \oplus x_1, ... , x_n \oplus x_{n-1} \oplus \cdots \oplus x_1
-$$
+```
+
 
 
 ## Usage
