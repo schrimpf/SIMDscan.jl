@@ -17,6 +17,7 @@ makedocs(;
          pages=[
            "Home" => "index.md",
            "Benchmarks" => "benchmarks.md",
+           "API" => "functions.md",
            "References" => "references.md"
          ],
          plugins=[bib]

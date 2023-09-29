@@ -25,7 +25,8 @@ computes the scan of `x` in place.
 
 ## Multivariate Operations
 
-There is also a method for scanning $⊕: \mathbbm{R}ᴷ→\mathbbm{R}ᴷ$. In this case, `⊕` should accept two `K` tuples as arguments and a `K`-tuple. 
+There is also a method for scanning `⊕: ℝᴷ→ℝᴷ`. In this case, `⊕` should accept two `NTuple{K,T}` tuples as arguments and return a `NTuple{K,T}`. 
+
 `x` should be a `NTuple{K,AbstractVector}` where each element of the tuple is the sequence of values.  
 
 The multivariate scan can be used to simulate an AR(1) model.
@@ -56,11 +57,3 @@ The following sources were helpful while developing this package:
 - [nash2021](@cite) has example code for a threaded scan (prefix sum) in Julia,
 
 
-```@index
-```
-
-## Functions
-
-```@autodocs
-Modules = [SIMDscan]
-```

@@ -2,13 +2,12 @@
     scan_serial!(f::F,x::AbstractVector) where {F <: Function}
 
 Replaces the vector `x` with the scan of `x` using `f`. That is,
-```math
-\begin{bmatrix}
-x[1] \\
-f(x[2],x[1]) \\
-f(x[3],f(x[2],x[1])) \\
+```
+x[1] 
+f(x[2],x[1]) 
+f(x[3],f(x[2],x[1])) 
 ⋮
-\end{bmatrix}
+```
 
 # Examples
 ```jl-doctest

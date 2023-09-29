@@ -2,15 +2,17 @@ using SIMDscan
 using Test, TestItemRunner
 
 @testitem  "vector scans" begin
-  N = 1000
-  x = rand(N)    
-  for (op, opidentity) ∈ zip([+, *], [0.0, 1.0])
-    scanxserial = copy(x)
-    scan_serial!(op,scanxserial)
-    scanxsimd = copy(x)
-    scan_simd!(op,scanxsimd, identity=opidentity)
-    @test isapprox(scanxserial, scanxsimd, rtol=sqrt(eps()))
-    @test isapprox(accumulate(op, x), scanxserial, rtol=sqrt(eps()))
+  for N ∈ [2, 47, 1000, 1001]
+    for x ∈ [rand(N), rand(Float32,N), rand(Bool, N), rand(1:N,N)]
+      for (op, opidentity) ∈ zip([+, *], [0.0, 1.0])
+        scanxserial = copy(x)
+        scan_serial!(op,scanxserial)
+        scanxsimd = copy(x)
+        scan_simd!(op,scanxsimd, identity=opidentity)
+        @test isapprox(scanxserial, scanxsimd, rtol=sqrt(eps()))
+        @test isapprox(accumulate(op, x), scanxserial, rtol=sqrt(eps()))
+      end
+    end
   end
 end
 
