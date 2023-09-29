@@ -150,7 +150,6 @@ function scan_simd!(f::F, x::AbstractVector{T}, v::Val{N}=Val(8);
                     identity::T=zero(T)) where {F, T, N}              
   remainder = length(x) % N
   s = Vec{N,T}(identity)
-  @show s
   @inbounds for i=1:N:(length(x) - remainder)
     xvec=vload(Vec{N,T},x,i)    
     xvec = scan_vec(f,xvec,s)
@@ -163,10 +162,8 @@ function scan_simd!(f::F, x::AbstractVector{T}, v::Val{N}=Val(8);
     vstore(xvec,x,i)
     s = f(lastx,s)
   end
-  @show x
   @inbounds for i=max(length(x)-remainder+1,2):length(x)
     setindex!(x,f(getindex(x,i-1),getindex(x,i)),i)
-    @show x
   end
   return(x)
 end

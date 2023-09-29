@@ -6,6 +6,7 @@
 using BenchmarkTools, CpuId, SIMDscan
 N = 10_000
 x = rand(N);
+nothing
 ```
 ```@repl bench
 cpuinfo()
@@ -28,7 +29,8 @@ function ar1recursize!(y, ϵ, α)
     end 
     y
 end
-ar(y,e) = (e[1] + α*y[1]*e[2], α*y[2]*e[2])
+ar(y,e) = (e[1] + α*y[1]*e[2], α*y[2]*e[2]);
+nothing
 ```
 ```@repl bench
 @benchmark ar1recursize!($y,$ϵ,$α)
