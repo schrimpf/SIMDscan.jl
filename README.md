@@ -22,5 +22,5 @@ x_1, x_1 \oplus x_2, x_3 \oplus x_2 \oplus x_1, ... , x_n \oplus x_{n-1} \oplus 
 
 ## Benchmarks
 
-[See the benchmarks section of the docs](https://schrimpf.github.io/SIMDscan.jl/dev/benchmarks/). With AVX512 instructions, `scan_simd!` appears to be about 4 time faster.
+[See the benchmarks section of the docs](https://schrimpf.github.io/SIMDscan.jl/dev/benchmarks/). With 512 bit SIMD vectors, `scan_simd!` appears to be about 4 time faster. With 256 bit SIMD vectors, the gain is smaller, but still notable. The benchmarks run on github actions, so the resuls and CPU will vary from commit to commit. The speed up will depend on problem size, and the $\oplus$ operator. 
 
