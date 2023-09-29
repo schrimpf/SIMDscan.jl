@@ -28,7 +28,7 @@ end
 function scan_serial!(f::F,x::NTuple{K, AbstractVector{T}}) where {F <: Function, K, T}
   @assert length(unique(length.(x)))==1
   for i=2:length(x[1])
-    setindex!.(x, f.(getindex.(x,i),getindex.(x,i-1)), i)
+    setindex!.(x, f(getindex.(x,i-1),getindex.(x,i)), i)
   end
   return(x)
 end
@@ -46,9 +46,15 @@ end
 
 @generated function scan_vec(f::F, x::NTuple{K, Vec{N,T}},identity::NTuple{K, Vec{N,T}}) where {F, K, N, T}
   @assert N & (N-1) == 0 # check that N is a power of 2
-  ex= :(x = f.(shufflevector.(x,identity, shiftleftmask(Val(N),Val(1))),x))
+  ex= :(
+    shx=shufflevector.(x,identity, shiftleftmask(Val(N),Val(1)));
+    x=f(shx,x);
+    )
   for j=1:(ceil(Int,log2(N))-1)
-    ex= :($(ex); x = f.(shufflevector.(x,identity, shiftleftmask(Val(N),Val($(2^(j-1))))),x))
+    ex= :($(ex);
+    shx=shufflevector.(x,identity, shiftleftmask(Val(N),Val($(2^j))));
+    x = f(shx,x);
+    ) 
   end
   return(ex)
 end
@@ -74,12 +80,12 @@ function scan_simd!(f::F, x::NTuple{K, AbstractVector{T}}, v::Val{N}=Val(8);
   @inbounds for i=1:N:(length(x[1])-remainder)
     lastx = Vec{N,T}.(getindex.(x,i+N-1))
     xvec=vload.(Vec{N,T},x,i)
-    xvec=f.(s,xvec)
+    xvec=f(s,xvec)
     vstore.(xvec,x,i)
-    s = f.(s,lastx)
+    s = f(s,lastx)
   end
   @inbounds for i=(length(x[1])-remainder+1):length(x[1])
-    setindex!.(x,f.(getindex.(x,i-1),getindex.(x,i)),i)
+    setindex!.(x,f(getindex.(x,i-1),getindex.(x,i)),i)
   end
   return(x)
 end
@@ -98,7 +104,7 @@ function scan_simd!(f::F, x::AbstractVector{T}, v::Val{N}=Val(8);
     xvec=vload(Vec{N,T},x,i)
     xvec=f(s,xvec)
     vstore(xvec,x,i)
-    s = f(s,lastx)
+    s = f(lastx,s)
   end
   @inbounds for i=(length(x)-remainder+1):length(x)
     setindex!(x,f(getindex(x,i-1),getindex(x,i)),i)

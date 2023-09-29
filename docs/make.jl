@@ -1,4 +1,3 @@
-using SIMDscan
 using Documenter
 
 DocMeta.setdocmeta!(SIMDscan, :DocTestSetup, :(using SIMDscan); recursive=true)
@@ -16,6 +15,7 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "Benchmarks" => "benchmarks.md"
     ],
 )
 
