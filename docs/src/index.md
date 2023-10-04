@@ -11,7 +11,7 @@ The Base Julia function `accumulate` performs the same operation.
 
 Given a sequence $x_1, x_2, ... , x_n$, and an associative operator, $\oplus$, the the scan is
 ```math
-x_1, x_1 \oplus x_2, x_3 \oplus x_2 \oplus x_1, ... , x_n \oplus x_{n-1} \oplus \cdots \oplus x_1
+x_1, x_2 \oplus x_1, x_3 \oplus x_2 \oplus x_1, ... , x_n \oplus x_{n-1} \oplus \cdots \oplus x_1
 ```
 
 For parallelization, it is essential that $\oplus$ be associative. The function `scan_simd!(⊕, x)` 
