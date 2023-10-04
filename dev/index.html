@@ -14,13 +14,13 @@ end
 id = (0.0,1.0/α) # a left identity; ⊕(id,x) = x ∀ x
 yscansimd,at = scan_simd!(⊕, (copy(ϵ), ones(T)), identity=id)
 [y yscansimd]</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">10×2 Matrix{Float64}:
- -2.02298   -2.02298
- -0.738475  -0.738475
- -0.598088  -0.598088
- -0.626255  -0.626255
- -0.878951  -0.878951
-  1.31349    1.31349
-  0.112406   0.112406
- -0.520138  -0.520138
-  1.86371    1.86371
-  0.419812   0.419812</code></pre><h2 id="Acknowledgements"><a class="docs-heading-anchor" href="#Acknowledgements">Acknowledgements</a><a id="Acknowledgements-1"></a><a class="docs-heading-anchor-permalink" href="#Acknowledgements" title="Permalink"></a></h2><p>The following sources were helpful while developing this package:</p><ul><li><a href="references/#slotin2022">(Slotin, 2023)</a> describes an SIMD implementation for prefix sum with C code</li><li><a href="references/#nash2021">(Nash *et al.*, 2021)</a> has example code for a threaded scan (prefix sum) in Julia,</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="benchmarks/">Benchmarks »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.1.0 on <span class="colophon-date" title="Friday 29 September 2023 19:00">Friday 29 September 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+  0.707224   0.707224
+  1.06561    1.06561
+  0.901295   0.901295
+ -0.312956  -0.312956
+  2.58292    2.58292
+  1.27926    1.27926
+  2.81651    2.81651
+  2.55722    2.55722
+  1.74714    1.74714
+  0.566015   0.566015</code></pre><h2 id="Acknowledgements"><a class="docs-heading-anchor" href="#Acknowledgements">Acknowledgements</a><a id="Acknowledgements-1"></a><a class="docs-heading-anchor-permalink" href="#Acknowledgements" title="Permalink"></a></h2><p>The following sources were helpful while developing this package:</p><ul><li><a href="references/#slotin2022">(Slotin, 2023)</a> describes an SIMD implementation for prefix sum with C code</li><li><a href="references/#nash2021">(Nash *et al.*, 2021)</a> has example code for a threaded scan (prefix sum) in Julia,</li></ul></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="benchmarks/">Benchmarks »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.1.0 on <span class="colophon-date" title="Wednesday 4 October 2023 19:37">Wednesday 4 October 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
